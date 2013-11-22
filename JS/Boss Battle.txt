@@ -1,0 +1,30 @@
+-BOSS BATTLE
+  Asteroid (player) vs. Planets (enemy)
+
+Story:
+You are an asteroid.
+But unlike your peers, you are sentient.
+You are completely fed up with the Galactic Feds: killing all your friends just because of the trajectories they're born with. The hypocrites exercise Lockeian philosophy but do not hesitate to encroach on your natural rights, 
+But no more!
+You decide to take things into your own -hands- rocks.
+
+game object
+
+sprites:
+-projectiles
+-planets
+-asteroid
+-ships
+-fields
+
+up: 38
+down: 40
+right: 39
+left: 37
+a: 65
+d: 68
+esc: 27
+space: 32
+
+
+background: space

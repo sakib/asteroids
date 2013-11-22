@@ -1,0 +1,89 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+	<script src="../JS/input.js"></script>
+    <script src="../JS/basicFigures.js"></script>
+    <script src="../JS/math.js"></script>
+	<script src="../JS/background.js"></script>
+    <script src="../JS/host.js"></script>
+    <script src="../JS/text.js"></script>
+	<script src="../JS/interactive.js"></script>
+	<script src="../JS/button.js"></script>
+	<script src="../JS/storyScreen.js"></script>
+    <script src="../JS/welcomeScreen.js"></script>
+	<script src="../JS/instructionScreen.js"></script>
+	<script src="../JS/lev1Screen.js"></script>
+	<script src="../JS/lev2Screen.js"></script>
+	<script src="../JS/planet.js"></script>
+	<script src="../JS/lifeBar.js"></script>
+	<script src="../JS/asteroid.js"></script>
+	<script src="../JS/physics.js"></script>
+	<script src="../JS/projectile.js"></script>
+	<script src="../JS/gameScreen.js"></script>
+    <script src="../JS/gameLoop.js"></script>
+	<script>
+        function preDefine() {
+            window.onresize = function () {
+                //WIDTH = window.innerWidth;
+                //HEIGHT = window.innerHeight;
+                //main_canvas.height = HEIGHT;
+                //main_canvas.width = WIDTH;
+            }
+        }
+    </script>
+    <style>
+        #container
+        {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 640px;
+            height: 480px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container" onmousemove="upPos(event)" onmousedown="downState(event)" onmouseup="upState(event)">
+        <canvas id="main_canvas"></canvas>
+    </div>
+    <div id="tester" style="position: absolute; top: -129370123px; left: -9182379812px height: auto;
+        width: auto;">
+    </div>
+    <script>
+		input();
+		FONT = "Impact";
+		TESTER = tester;
+        WIDTH = window.innerWidth;
+        HEIGHT = window.innerHeight;
+        main_canvas.height = HEIGHT;
+        main_canvas.width = WIDTH;
+        CTX = main_canvas.getContext('2d');
+        preDefine();
+        var MX, MY, STATE = true;
+        function upPos(e) {
+            var npos = GetLocalMousePosition("container", e.x, e.y);
+            MX = npos.x;
+            MY = npos.y;
+        }
+        function upState(e) {
+            STATE = true;
+            var npos = GetLocalMousePosition("container", e.x, e.y);
+            MX = npos.x;
+            MY = npos.y;
+        }
+        function downState(e) {
+            STATE = false;
+            var npos = GetLocalMousePosition("container", e.x, e.y);
+            MX = npos.x;
+            MY = npos.y;
+        }
+	
+		var mainLoop = new gameLoop();
+        setInterval(function () {
+			mainLoop.update();
+			mainLoop.draw();
+        }, (1000 / 30));
+    </script>
+</body>
+</html>
