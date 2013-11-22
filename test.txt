@@ -1,3 +1,0 @@
-echo swag
-
-echo swag2
